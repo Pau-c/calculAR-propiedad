@@ -3,8 +3,9 @@ name = "calcular-propiedad"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.13,<3.14" #ultimo release antes de 3.14, duckdb sino tiene problemas
 dependencies = [
+    "duckdb>=1.4.1",
     "fastapi>=0.120.4",
     "ipykernel>=7.1.0",
     "joblib>=1.5.2",
