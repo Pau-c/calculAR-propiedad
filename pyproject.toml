@@ -23,3 +23,49 @@ dependencies = [
 dev = [
     "commitizen>=4.9.1",
 ]
+
+[tool.commitizen]
+name = "cz_customize"
+tag_format = "v$version"
+
+[tool.commitizen.customize]
+message_template = "{% if change_type %}{{ change_type }}{% endif %}{% if scope %}({{ scope }}){% endif %}: {{ message }}{% if body %}\n\n{{ body }}{% endif %}{% if footer %}\n\n{{ footer }}{% endif %}"
+example = "feat(core): add new feature\n\nDescription...\n\nfixes #123"
+schema = "<type>(<scope>): <subject>"
+schema_pattern = "^(feat|fix|chore|docs|refactor|perf|test)(\\(.*\\))?:\\s.*"
+
+# Definimos las preguntas del flujo interactivo (incluimos footer)
+[[tool.commitizen.customize.questions]]
+type = "list"
+name = "change_type"
+message = "Seleccioná el tipo de cambio"
+choices = [
+  {value = "feat", name = "feat: nueva funcionalidad"},
+  {value = "fix",  name = "fix: corrección de bug"},
+  {value = "chore", name = "chore: tareas de mantenimiento"},
+  {value = "docs", name = "docs: documentación"},
+  {value = "refactor", name = "refactor: refactorización"},
+  {value = "perf", name = "perf: mejora de rendimiento"},
+  {value = "test", name = "test: agregar/ajustar tests"}
+]
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "scope"
+message = "¿En qué parte del código afecta este cambio? Scope (opcional)"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "message"
+message = "Resumen corto (subject) del cambio"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "body"
+message = "Descripción detallada (opcional)"
+multiline = true
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "footer"
+message = "Footer (por ejemplo: fixes #123, closes #456 para cerrarlos automáticamente)"
