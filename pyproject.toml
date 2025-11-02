@@ -10,6 +10,7 @@ dependencies = [
     "ipykernel>=7.1.0",
     "joblib>=1.5.2",
     "jupyter>=1.1.1",
+    "kagglehub[pandas-datasets]>=0.3.13",
     "loguru>=0.7.3",
     "pandas>=2.3.3",
     "pydantic>=2.12.3",
