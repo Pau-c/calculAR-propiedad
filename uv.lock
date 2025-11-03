@@ -168,6 +168,7 @@ name = "calcular-propiedad"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "commitizen" },
     { name = "duckdb" },
     { name = "fastapi" },
     { name = "ipykernel" },
@@ -189,6 +190,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "commitizen", specifier = ">=4.9.1" },
     { name = "duckdb", specifier = ">=1.4.1" },
     { name = "fastapi", specifier = ">=0.120.4" },
     { name = "ipykernel", specifier = ">=7.1.0" },

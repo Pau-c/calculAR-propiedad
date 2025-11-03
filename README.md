@@ -17,6 +17,9 @@
 
 
 > [!TIP]
-> [Live Demo](https://deepnote.com/app/test-0bbe/)
-> 
 >[Repo en Github](https://github.com/Pau-c/calculAR-propiedad)
+
+---
+---
+
+🚀 _Powered by Vibecoding_  
