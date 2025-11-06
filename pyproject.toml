@@ -69,4 +69,4 @@ multiline = true
 [[tool.commitizen.customize.questions]]
 type = "input"
 name = "footer"
-message = "Footer (por ejemplo: fixes #123, closes #456 para cerrarlos automáticamente)"
+message = "Footer (para cerrar issues automáticamente. ej: fixes #123, closes #456 y closes #457)"
