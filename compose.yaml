@@ -1,0 +1,45 @@
+#=================================
+# DESCOMENTAR AL AGREGAR DATADOG
+#================================
+
+# services:
+#   observability_api:
+#     build: .
+#     ports:
+#       - "8000:8000"
+#     environment:
+#       - DD_AGENT_HOST=datadog
+#       - DD_SERVICE=observability_api
+#       - DD_ENV=dev
+#       - DD_LOGS_INJECTION=true
+#     volumes:
+#       - ./api_logs:/app/api_logs
+#     depends_on:
+#       - datadog
+#     restart: unless-stopped
+
+#   datadog:
+#     image: datadog/agent:latest
+#     container_name: datadog
+#     env_file:
+#       - .env
+#     environment:
+#       - DD_SITE=us3.datadoghq.com
+#       - DD_LOGS_ENABLED=true
+#       - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
+#       - DD_APM_ENABLED=true
+#       - DD_PROCESS_AGENT_ENABLED=true
+#       - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
+#     volumes:
+#       - /var/run/docker.sock:/var/run/docker.sock:ro
+#       - /proc/:/host/proc/:ro
+#       - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+#       - /var/lib/docker/containers:/var/lib/docker/containers:ro
+#     restart: unless-stopped
+
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - 8000:8000

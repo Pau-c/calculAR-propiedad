@@ -1,0 +1,21 @@
+#==============================
+DESCOMENTAR AL AGREGAR LOGGING
+#=============================
+
+#Le dice a Datadog como leer y parsear logs JSON para que no los trate como texto plano
+# logs:
+#   - type: file
+#     path: /app/api_logs/*.json #indica al agente dónde leer los .json
+#     service: observability_api
+#     source: python
+#     log_processing_rules:
+#       - type: multi_line
+#         name: log_start_with_date
+#         pattern: '^\{'
+#       - type: grok_parser
+#         name: parse_json
+#         samples:
+#           - '{"text":"2025-10-27 20:21:43.481 | INFO | logger_setup..."}'
+#         grok:
+#           match_rules:
+#             - '.*%{json:json_message}'

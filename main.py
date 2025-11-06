@@ -4,7 +4,7 @@ from app.routers import predict, health
 app = FastAPI(
     title="CalculAR $ Propiedades",
     version="1.0.0",
-    description="API para predicción de precios inmobiliarios"
+    description="API para predicción inmobiliaria"
 )
 
 # Routers

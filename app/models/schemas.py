@@ -38,7 +38,7 @@ class Sample(BaseModel):
         }
     }
 
-
+# response
 class PredictionOut(BaseModel):
     predicted_price: float
     currency: str
