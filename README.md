@@ -93,7 +93,7 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 <details>
 
 #### - Tener el servicio de Docker corriendo
-#### -  Ir a carpeta de proyecto en terminal:
+#### -  Una vez corrido en el IDE el notebook `load_save_db` con `run all` y generado los archivos joblib:
 ```
 docker compose up --build
 ```
@@ -112,13 +112,14 @@ http://127.0.0.1:8000/docs
 **NOTA SOBRE COMMITS:**
 ****************************************************************************************************************
 
-#### - El proyecto usa commitizens para estandarizar los mensajes de commits, en vez de 'git commit' usar comando `cz commit` y seguir las instrucciones en la terminal
+##### - El proyecto usa la biblioteca 'commitizens' para estandarizar los mensajes de commits, en vez de 'git commit', usar comando `cz commit` y seguir las instrucciones en la terminal
 
 ***************************************************************************************************************
 **PASOS PARA USAR en IDE SIN DOCKER con UV y COMENZAR DESARROLLO**
 ****************************************************************************************************************
-<details>
 
+
+   
 ### - Crear entorno virtual:
 Si todavía no se instaló uv en el sistema como en el primer paso, en terminal: `pip install uv` y luego  ejecutar:
 
@@ -156,7 +157,7 @@ uvicorn main:app --reload --port 8000
 ```
 http://127.0.0.1:8000/docs
 ```
-</details>
+
 
 <!-- PROJECT SHIELDS VARIABLES-->
 [datadog-shield]:https://img.shields.io/badge/Observability-Datadog-black?style=flat&labelColor=%23808080k&color=81493b&logo=datadog&logoColor=white
