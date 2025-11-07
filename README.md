@@ -20,13 +20,6 @@
 >[Repo en Github](https://github.com/Pau-c/calculAR-propiedad)
 
 
-## Instrucciones 
-
-### 🛠️ Requisitos e Instalación
-
-### - Dataset de [Kaggle](https://www.kaggle.com/datasets/alejandroczernikier/properati-argentina-dataset) 
-### - Poner el .CSV en la carpeta RAW: app/data/artifacts/RAW 
-
 <!-- PROJECT SHIELDS -->
 [![datadogBadge][datadog-shield]][datadog-url]
 [![dockerBadge][docker-shield]][docker-url]
@@ -41,57 +34,30 @@
 [![scikitlearnBadge][scikitlearn-shield]][scikitlearn-url]
 [![uvBadge][uv-shield]][uv-url]
 [![uvicornBadge][uvicorn-shield]][uvicorn-url]
-
 <!-- PROJECT SHIELDS -->
-*****************************************************************************************************************
-**PASOS PARA USAR CON DOCKER**
-****************************************************************************************************************
 
-### - Instalar `Docker` desktop
-### - Instalar `duckDBCLI` 
+## Instrucciones 
+
+### 🛠️ Requisitos e Instalación
+
+#### - Instalar `Docker` desktop
+#### - Instalar `duckDBCLI` 
 ```
 winget install DuckDB.cli
 ```
 
-### - Clonar repo:
-```
-git clone https://github.com/Pau-c/calculAR-propiedad.git
-```
-### - Abrir el proyecto en ide
-### - Tener el servicio de Docker corriendo
-### -  Ir a carpeta de proyecto en terminal:
-```
-docker compose up --build
-```
-### - Para volver a correr el proyecto dentro del contenedor si no hubo cambios:
-```
-docker compose up 
-```
+#### - Instalar `uv` en la pc Windows si es necesario (en terminal de Windows):
+<details>
 
-### - Abrir proyecto en un browser:
-```
-http://127.0.0.1:8000/docs
-```
+   Abrir un prompt CMD en win  o terminal ID, ver el prompt con PS:>    y ejecutar:
 
-***************************************************************************************************************
-**NOTA SOBRE COMMITS**
-****************************************************************************************************************
-
-### - El proyecto usa commitizens para estandarizar los mensajes de commits, en vez de 'git commit' usar comando `cz commit` y seguir las instrucciones en la terminal
-
-***************************************************************************************************************
-**PASOS PARA USAR en IDE SIN DOCKER con UV y COMENZAR DESARROLLO**
-****************************************************************************************************************
-
-### - Instalar uv en la pc si es necesario (en terminal de Windows):
-
-   Abrir un prompt CMD en win  o terminal ID, ver el prompt con PS:>    y ejecutar
 ```
  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
-### - Instalar uv en la pc si es necesario (linux)
 
-### Instalar curl si no lo tienes
+### - Instalar uv  (Linux)
+
+### Instalar curl si no lo tenes
 ```
 sudo apt update
 ```
@@ -107,16 +73,55 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 source ~/.bashrc  # Para Bash
 ```
 source ~/.zshrc   # Para Zsh
+</details>
 
-### - Clonar repo:
+#### - Clonar repo:
 ```
 git clone https://github.com/Pau-c/calculAR-propiedad.git
 ```
 
-### - Abrir proyecto en un IDE
+#### - Abrir el proyecto en IDE
+#### - Bajar dataset de [Kaggle](https://www.kaggle.com/datasets/alejandroczernikier/properati-argentina-dataset) 
+#### - Poner el `.CSV` en la carpeta RAW: `app/data/artifacts/RAW`
+#### - Correr la notebook `load_save_db.ipynb`
+
+
+
+*****************************************************************************************************************
+**PASOS PARA USAR CON DOCKER**
+****************************************************************************************************************
+<details>
+
+#### - Tener el servicio de Docker corriendo
+#### -  Ir a carpeta de proyecto en terminal:
+```
+docker compose up --build
+```
+### - Para volver a correr el proyecto dentro del contenedor si no hubo cambios:
+```
+docker compose up 
+```
+
+### - Abrir proyecto en un browser:
+```
+http://127.0.0.1:8000/docs
+```
+</details>
+
+***************************************************************************************************************
+**NOTA SOBRE COMMITS:**
+****************************************************************************************************************
+
+#### - El proyecto usa commitizens para estandarizar los mensajes de commits, en vez de 'git commit' usar comando `cz commit` y seguir las instrucciones en la terminal
+
+***************************************************************************************************************
+**PASOS PARA USAR en IDE SIN DOCKER con UV y COMENZAR DESARROLLO**
+****************************************************************************************************************
+<details>
 
 ### - Crear entorno virtual:
 Si todavía no se instaló uv en el sistema como en el primer paso, en terminal: `pip install uv` y luego  ejecutar:
+
 ```
 uv venv
 ```
@@ -151,7 +156,7 @@ uvicorn main:app --reload --port 8000
 ```
 http://127.0.0.1:8000/docs
 ```
-
+</details>
 
 <!-- PROJECT SHIELDS VARIABLES-->
 [datadog-shield]:https://img.shields.io/badge/Observability-Datadog-black?style=flat&labelColor=%23808080k&color=81493b&logo=datadog&logoColor=white
