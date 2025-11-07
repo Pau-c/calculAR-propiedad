@@ -144,7 +144,7 @@ uv sync
 
 ### - Ejecutar el proyecto localmente en terminal con:
 ```
-uvicorn app:app --reload --port 8000
+uvicorn main:app --reload --port 8000
 ```
 
 ### - Abrir proyecto en browser para ver los endpoints:
