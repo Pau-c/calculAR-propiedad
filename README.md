@@ -48,6 +48,11 @@
 ****************************************************************************************************************
 
 ### - Instalar `Docker` desktop
+### - Instalar `duckDBCLI` 
+```
+winget install DuckDB.cli
+```
+
 ### - Clonar repo:
 ```
 git clone https://github.com/Pau-c/calculAR-propiedad.git
