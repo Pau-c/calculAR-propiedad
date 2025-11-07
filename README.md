@@ -134,6 +134,7 @@ uv sync
 #### Asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate`
 #### En linux: `source .venv/bin/activate`
 
+
 ### - Correr en `load_save_db.ipynb` para generar los modelos a traves del notebook
 
 ### - Ejecutar el proyecto localmente en terminal con:

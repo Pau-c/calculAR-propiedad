@@ -25,7 +25,12 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-data/
+entrenamiento.parquet
+gradient_boosting.joblib
+random_forest.joblib
+entrenamiento.duckdb
+entrenamiento.csv
+manifest.json
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
