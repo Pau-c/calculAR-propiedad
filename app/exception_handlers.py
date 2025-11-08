@@ -51,7 +51,7 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
 
 
 async def general_exception_handler(request: Request, exc: Exception):
-    #Maneja cualquier otro error inesperado (500)
+    #Maneja errores inesperados (500)
     logger.exception(f"Error inesperado en {request.url}")
     return JSONResponse(status_code=500, content={"detail": "Internal server error"})
 
