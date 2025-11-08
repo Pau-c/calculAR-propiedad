@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, field_validator
-
+from loguru import logger
 from typing import Optional
 
 # modelo p/pydantic
@@ -21,45 +21,40 @@ class Sample(BaseModel):
     price_period: Optional[str] = Field(None)
     days_active: Optional[float] = Field(None, ge=0)
     created_age_days: Optional[float] = Field(None, ge=0)
-
-
-# Validadores de datos
+    
     @field_validator("surface_covered")
-    def check_surface_covered(cls, v, info):
-        total = info.data.get("surface_total")
-        if v is not None and total is not None and v > total:
-            raise ValueError(
-                "La superficie cubierta no puede superar la total."
-            )
-        return v
+    def validar_superficie(cls, v, info):
+            surface_total = info.data.get("surface_total")
+            if v is not None and surface_total is not None and v > surface_total:
+                logger.warning(f"Superficie cubierta ({v}) > total ({surface_total})")
+            return v
 
     @field_validator("property_type")
     def validate_property_type(cls, v):
         allowed = {"Departamento", "PH", "Casa"}
         if v not in allowed:
-            raise ValueError(
-                f"Tipo de propiedad inválido: {v}. Debe ser uno de {allowed}."
-            )
+            logger.error(f"Tipo de propiedad inválido: {v}")
+            raise ValueError(f"Tipo de propiedad inválido: {v}. Debe ser uno de {allowed}.")
         return v
 
     @field_validator("operation_type")
     def validate_operation_type(cls, v):
         allowed = {"Venta", "Alquiler"}
         if v not in allowed:
-            raise ValueError(
-                f"Tipo de operación inválido: {v}. Debe ser 'Venta' o 'Alquiler'."
-            )
+            logger.error(f"Tipo de operación inválido: {v}")
+            raise ValueError(f"Tipo de operación inválido: {v}. Debe ser 'Venta' o 'Alquiler'.")
         return v
 
     @field_validator("lon", "lat")
     def validate_coordinates(cls, v, info):
-        if v is not None:
-            if info.field_name == "lon" and not (-65 <= v <= -55):
-                raise ValueError("Longitud fuera del rango esperado para Argentina.")
-            if info.field_name == "lat" and not (-40 <= v <= -20):
-                raise ValueError("Latitud fuera del rango esperado para Argentina.")
+        if v is None:
+            return v
+        if info.field_name == "lon" and not (-65 <= v <= -55):
+            logger.warning(f"Longitud fuera de rango: {v}")
+        if info.field_name == "lat" and not (-40 <= v <= -20):
+            logger.warning(f"Latitud fuera de rango: {v}")
         return v
-
+    
 # ejemplo de datos para swagger
     model_config = {
         "json_schema_extra": {

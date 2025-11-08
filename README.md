@@ -46,6 +46,10 @@
 winget install DuckDB.cli
 ```
 
+
+#### - Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
+#### - Copiar `Api key` y dirección(ej: us3.datadoghq.com)
+
 #### - Instalar `uv` en la pc Windows si es necesario (en terminal de Windows):
 <details>
 
@@ -83,6 +87,9 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 #### - Abrir el proyecto en IDE
 #### - Bajar dataset de [Kaggle](https://www.kaggle.com/datasets/alejandroczernikier/properati-argentina-dataset) 
 #### - Poner el `.CSV` en la carpeta RAW: `app/data/artifacts/RAW`
+### - modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
+### - Dentro pegar la api key de Datadog que se copio antes siguiendo este formato (sin espacios ni comillas): `DD_API_KEY=`
+### - En archivo `compose.yaml` pegar la direccion copiada en `DD_SITE=` (sin espacios ni comillas)
 #### - Correr la notebook `load_save_db.ipynb`
 
 

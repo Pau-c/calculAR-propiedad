@@ -20,6 +20,8 @@ dependencies = [
     "commitizen>=4.9.1",
     "pytest>=8.4.2",
     "matplotlib>=3.10.7",
+    "dotenv>=0.9.9",
+    "ddtrace>=3.18.0",
 ]
 
 [dependency-groups]
