@@ -40,17 +40,17 @@
 
 ### 🛠️ Requisitos e Instalación
 
-#### - Instalar `Docker` desktop
-#### - Instalar `duckDBCLI` 
+#### :small_blue_diamond: Instalar `Docker` desktop
+#### :small_blue_diamond: Instalar `duckDBCLI` 
 ```
 winget install DuckDB.cli
 ```
 
 
-#### - Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
+#### :small_blue_diamond: Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
 #### - Copiar `Api key` y dirección(ej: us3.datadoghq.com)
 
-#### - Instalar `uv` en la pc Windows si es necesario (en terminal de Windows):
+#### :small_blue_diamond: Instalar `uv` en la pc Windows si es necesario (en terminal de Windows):
 <details>
 
    Abrir un prompt CMD en win  o terminal ID, ver el prompt con PS:>    y ejecutar:
@@ -59,24 +59,31 @@ winget install DuckDB.cli
  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-### - Instalar uv  (Linux)
+#### - Instalar uv  (Linux)
 
-### Instalar curl si no lo tenes
+#### Instalar curl si no lo tenes
+
 ```
 sudo apt update
 ```
 ```
 sudo apt install curl
 ```
-### Descargar e instalar uv
+#### Descargar e instalar uv
+
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
-### Recargar el profile 
+
+#### Recargar el profile 
+
 ```
 source ~/.bashrc  # Para Bash
 ```
+```
 source ~/.zshrc   # Para Zsh
+```
+---
 </details>
 
 #### - Clonar repo:
@@ -89,18 +96,19 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 
 <details>
 
-### - Modo 1 CSV:
+> #### - Modo 1 CSV:
 #### - Bajar dataset de [Kaggle](https://www.kaggle.com/datasets/alejandroczernikier/properati-argentina-dataset) 
 #### - Poner el `.CSV` en la carpeta RAW: `app/data/artifacts/RAW`
-### - Modo 2 autenticación con api key: 
+> #### - Modo 2 autenticación con api key: 
 #### - Tener una cuenta de Kaggle,  [bajar](https://www.kaggle.com/settings)  la api key de tu usuario en formato .json y poner ese archivo en el path de root: `C:\Users\TU_USERNAME\.kaggle` (crear carpeta .kaggle si no existe)
 
+---
 </details>
 
-#### - modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
+#### :small_blue_diamond: modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
 #### - Dentro pegar la api key de Datadog que se copio antes siguiendo este formato (sin espacios ni comillas): `DD_API_KEY=`
-#### - En archivo `compose.yaml` pegar la direccion copiada en `DD_SITE=` (sin espacios ni comillas)
-#### - Correr la notebook `load_save_db.ipynb`
+#### :small_blue_diamond: En archivo `compose.yaml` pegar la direccion copiada en `DD_SITE=` (sin espacios ni comillas)
+#### :exclamation: Correr la notebook `load_save_db.ipynb`
 
 
 
@@ -114,22 +122,24 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 ```
 docker compose up --build
 ```
-### - Para volver a correr el proyecto dentro del contenedor si no hubo cambios:
+#### - Para volver a correr el proyecto dentro del contenedor si no hubo cambios:
 ```
 docker compose up 
 ```
 
-### - Abrir proyecto en un browser:
+#### - Abrir proyecto en un browser:
 ```
 http://127.0.0.1:8000/docs
 ```
+---
 </details>
 
 ***************************************************************************************************************
 **NOTA SOBRE COMMITS:**
 ****************************************************************************************************************
 
-##### - El proyecto usa la biblioteca 'commitizens' para estandarizar los mensajes de commits, en vez de 'git commit', usar comando `cz commit` y seguir las instrucciones en la terminal
+> [!NOTE]
+>  El proyecto usa la biblioteca 'commitizens' para estandarizar los mensajes de commits, en vez de 'git commit', usar comando `cz commit` y seguir las instrucciones en la terminal
 
 ***************************************************************************************************************
 **PASOS PARA USAR en IDE SIN DOCKER con UV y COMENZAR DESARROLLO**
