@@ -28,10 +28,11 @@ MANIFEST
 entrenamiento.parquet
 gradient_boosting.joblib
 random_forest.joblib
-entrenamiento.duckdb
-entrenamiento.csv
+RAW/
+parquet/
+DB/
 manifest.json
-
+.github/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

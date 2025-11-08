@@ -85,11 +85,21 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 ```
 
 #### - Abrir el proyecto en IDE
+#### - Dataset: se puede bajar de Kaggle o con el codigo
+
+<details>
+
+### - Modo 1 CSV:
 #### - Bajar dataset de [Kaggle](https://www.kaggle.com/datasets/alejandroczernikier/properati-argentina-dataset) 
 #### - Poner el `.CSV` en la carpeta RAW: `app/data/artifacts/RAW`
-### - modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
-### - Dentro pegar la api key de Datadog que se copio antes siguiendo este formato (sin espacios ni comillas): `DD_API_KEY=`
-### - En archivo `compose.yaml` pegar la direccion copiada en `DD_SITE=` (sin espacios ni comillas)
+### - Modo 2 autenticación con api key: 
+#### - Tener una cuenta de Kaggle,  [bajar](https://www.kaggle.com/settings)  la api key de tu usuario en formato .json y poner ese archivo en el path de root: `C:\Users\TU_USERNAME\.kaggle` (crear carpeta .kaggle si no existe)
+
+</details>
+
+#### - modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
+#### - Dentro pegar la api key de Datadog que se copio antes siguiendo este formato (sin espacios ni comillas): `DD_API_KEY=`
+#### - En archivo `compose.yaml` pegar la direccion copiada en `DD_SITE=` (sin espacios ni comillas)
 #### - Correr la notebook `load_save_db.ipynb`
 
 
@@ -153,7 +163,7 @@ uv sync
 #### En linux: `source .venv/bin/activate`
 
 
-### - Correr en `load_save_db.ipynb` para generar los modelos a traves del notebook
+#### - Correr todas las celdas en `load_save_db.ipynb` para generar los modelos a traves del notebook
 
 ### - Ejecutar el proyecto localmente en terminal con:
 ```
