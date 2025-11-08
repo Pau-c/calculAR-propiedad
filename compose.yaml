@@ -6,8 +6,9 @@ services:
     environment:
       - DD_AGENT_HOST=datadog
       - DD_SERVICE=observability_api
-      - DD_ENV=dev
+      - DD_ENV=${ENV}
       - DD_LOGS_INJECTION=true
+      - LOG_FORMAT=json 
     volumes:
       - ./api_logs:/app/api_logs
     depends_on:
@@ -16,7 +17,7 @@ services:
 
   datadog:
     image: datadog/agent:latest
-    container_name: datadog
+    container_name: datadog2
     env_file:
       - .env
     environment:
