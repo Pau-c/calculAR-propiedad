@@ -1,0 +1,24 @@
+split_test_size: 0.2
+rf_n_estimators: 100
+rf_min_samples_split: 4
+rf_scaler: RobustScaler
+gb_n_estimators: 100
+gb_learning_rate: 0.05
+gb_max_depth: 3
+gb_subsample: 0.8
+numeric_features:
+- lon
+- lat
+- rooms
+- bedrooms
+- bathrooms
+- surface_total
+- surface_covered
+- days_active
+- created_age_days
+categorical_features:
+- l3
+- currency
+- price_period
+- property_type
+- operation_type

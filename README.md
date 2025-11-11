@@ -50,6 +50,11 @@ winget install DuckDB.cli
 #### :small_blue_diamond: Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
 #### - Copiar `Api key` y dirección(ej: us3.datadoghq.com)
 
+#### :small_blue_diamond: Instalar `DVC` para versionado de datos 
+```
+winget install --id Iterative.DVC
+```
+
 #### :small_blue_diamond: Instalar `uv` en la pc Windows si es necesario (en terminal de Windows):
 <details>
 
