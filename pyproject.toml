@@ -22,7 +22,8 @@ dependencies = [
     "matplotlib>=3.10.7",
     "ddtrace>=3.18.0",
     "kaggle>=1.7.4.5",
-    "dotenv>=0.9.9",
+    "dvc[git]>=3.50.2",
+    "dvclive>=3.48.0",
 ]
 
 [dependency-groups]
