@@ -46,14 +46,14 @@
 winget install DuckDB.cli
 ```
 
-
-#### :small_blue_diamond: Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
-#### - Copiar `Api key` y dirección(ej: us3.datadoghq.com)
-
 #### :small_blue_diamond: Instalar `DVC` para versionado de datos 
 ```
 winget install --id Iterative.DVC
 ```
+
+#### :small_blue_diamond: (opcional) Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
+#### - Copiar `Api key` y dirección(ej: us3.datadoghq.com)
+
 
 #### :small_blue_diamond: Instalar `uv` en la pc Windows si es necesario (en terminal de Windows):
 <details>
@@ -171,7 +171,7 @@ uv venv
 > 3. Elegir el kernel que tenga el nombre del proyecto.
 
 
-#### Asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate`
+#### Asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal : `.venv\Scripts\activate` o  `source .venv/Scripts/activate`
 #### En linux: `source .venv/bin/activate`
 
 ### - Sincronizar entorno virtual al instalar el proyecto y luego de cada cambio en el .toml
