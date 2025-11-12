@@ -34,13 +34,14 @@
 [![scikitlearnBadge][scikitlearn-shield]][scikitlearn-url]
 [![uvBadge][uv-shield]][uv-url]
 [![uvicornBadge][uvicorn-shield]][uvicorn-url]
+[![pytestBadge][pytest-shield]][pytest-url]
+[![DVCBadge][DVC-shield]][DVC-url]
 <!-- PROJECT SHIELDS -->
 
 ## Instrucciones 
 
 ### 🛠️ Requisitos e Instalación
 
-#### :small_blue_diamond: Instalar `Docker` desktop
 #### :small_blue_diamond: Instalar `duckDBCLI` 
 ```
 winget install DuckDB.cli
@@ -50,11 +51,7 @@ winget install DuckDB.cli
 ```
 winget install --id Iterative.DVC
 ```
-
-#### :small_blue_diamond: (opcional) Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
-#### - Copiar `Api key` y dirección(ej: us3.datadoghq.com)
-
-
+#### :small_blue_diamond: Instalar `Docker` desktop (opcional)
 #### :small_blue_diamond: Instalar `uv` en la pc Windows si es necesario (en terminal de Windows):
 <details>
 
@@ -97,7 +94,7 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 ```
 
 #### - Abrir el proyecto en IDE
-#### - Dataset: se puede bajar como csv de `Kaggle` de forma manual o desde el codigo con la api key de Kaggle
+#### - :exclamation: El **dataset** se puede bajar como .csv de `Kaggle` de forma manual o desde el codigo con la api key de Kaggle
 
 <details>
 
@@ -110,10 +107,57 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 ---
 </details>
 
+#### :small_blue_diamond: (opcional para observability) Datadog:
+<details>
+
+#### Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
+#### - Copiar `Api key` y dirección(ej: us3.datadoghq.com)
 #### :small_blue_diamond: modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
 #### - Dentro pegar la api key de Datadog que se copio antes siguiendo este formato (sin espacios ni comillas): `DD_API_KEY=`
 #### :small_blue_diamond: En archivo `compose.yaml` pegar la direccion copiada en `DD_SITE=` (sin espacios ni comillas)
-#### :exclamation: Correr la notebook `load_save_db.ipynb`
+
+</details>
+
+***************************************************************************************************************
+**PASOS PARA USAR en IDE SIN DOCKER con UV y COMENZAR DESARROLLO**
+****************************************************************************************************************
+   
+### - Crear entorno virtual:
+Si todavía no se instaló uv en el sistema como en el primer paso, en terminal: `pip install uv` y luego  ejecutar:
+
+```
+uv venv
+```
+
+### -Elegir kernel
+>Para que el código del notebook funcione,  indicarle a VS Code que utilice el Python >que está dentro del nuevo entorno. Esto se hace dentro de la interfaz del notebook:
+
+> [!IMPORTANT]
+> Abrir el archivo `.ipynb` en VS Code.
+> 1. Hacer clic en el selector del kernel (la esquina superior derecha).
+> 2. Seleccionar otro kernel.
+> 3. Elegir el kernel que tenga el nombre del proyecto.
+
+
+#### Asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal : `.venv\Scripts\activate` o  con  `source .venv/Scripts/activate`
+#### En linux: `source .venv/bin/activate`
+
+### - Sincronizar entorno virtual al instalar el proyecto y luego de cada cambio en el .toml
+```
+uv sync
+```
+
+#### - Correr todas las celdas en `load_save_db.ipynb` para generar los modelos a traves del notebook
+
+### - Ejecutar el proyecto localmente en terminal con:
+```
+uvicorn main:app --reload --port 8000
+```
+
+### - Abrir proyecto en browser para ver los endpoints:
+```
+http://127.0.0.1:8000/docs
+```
 
 
 
@@ -123,7 +167,8 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 <details>
 
 #### - Tener el servicio de Docker corriendo
-#### -  Una vez corrido en el IDE el notebook `load_save_db` con `run all` y generado los archivos joblib:
+#### -  Poner.csv de kaggle en carpeta RAW: `app/data/artifacts/RAW` o configurar Kaggle api key para que se baje automaticamente.
+#### :exclamation: Correr la notebook `load_save_db.ipynb` con `run all` para generar los archivos joblib:
 ```
 docker compose up --build
 ```
@@ -146,52 +191,6 @@ http://127.0.0.1:8000/docs
 > [!NOTE]
 >  El proyecto usa la biblioteca 'commitizens' para estandarizar los mensajes de commits, en vez de 'git commit', usar comando `cz commit` y seguir las instrucciones en la terminal
 
-***************************************************************************************************************
-**PASOS PARA USAR en IDE SIN DOCKER con UV y COMENZAR DESARROLLO**
-****************************************************************************************************************
-
-
-   
-### - Crear entorno virtual:
-Si todavía no se instaló uv en el sistema como en el primer paso, en terminal: `pip install uv` y luego  ejecutar:
-
-```
-uv venv
-```
-
-
-
-### -Elegir kernel
->Para que el código del notebook funcione,  indicarle a VS Code que utilice el Python >que está dentro del nuevo entorno. Esto se hace dentro de la interfaz del notebook:
-
-> [!IMPORTANT]
-> Abrir el archivo `.ipynb` en VS Code.
-> 1. Hacer clic en el selector del kernel (la esquina superior derecha).
-> 2. Seleccionar otro kernel.
-> 3. Elegir el kernel que tenga el nombre del proyecto.
-
-
-#### Asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal : `.venv\Scripts\activate` o  `source .venv/Scripts/activate`
-#### En linux: `source .venv/bin/activate`
-
-### - Sincronizar entorno virtual al instalar el proyecto y luego de cada cambio en el .toml
-```
-uv sync
-```
-
-#### - Correr todas las celdas en `load_save_db.ipynb` para generar los modelos a traves del notebook
-
-### - Ejecutar el proyecto localmente en terminal con:
-```
-uvicorn main:app --reload --port 8000
-```
-
-### - Abrir proyecto en browser para ver los endpoints:
-```
-http://127.0.0.1:8000/docs
-```
-
-
 <!-- PROJECT SHIELDS VARIABLES-->
 [datadog-shield]:https://img.shields.io/badge/Observability-Datadog-black?style=flat&labelColor=%23808080k&color=81493b&logo=datadog&logoColor=white
 [datadog-url]: https://www.datadoghq.com/
@@ -203,20 +202,24 @@ http://127.0.0.1:8000/docs
 [dotenv-url]:https://pypi.org/project/python-dotenv/
 [duckDB-shield]:https://img.shields.io/badge/BD-duckDB-black?style=flat&labelColor=%23808080k&color=f7b387&logo=duckDB&logoColor=white
 [duckDB-url]: https://duckdb.org/
-[fastapi-shield]:https://img.shields.io/badge/Framework-Fastapi-black?style=flat&labelColor=%23808080k&color=b0c69a&logo=fastapi&logoColor=white
+[DVC-shield]:https://img.shields.io/badge/Data_versioning-DVC-black?style=flat&labelColor=%23808080k&color=b0c69a&logo=DVC&logoColor=white
+[DVC-url]: https://dvc.org/
+[fastapi-shield]:https://img.shields.io/badge/Web_API-Fastapi-black?style=flat&labelColor=%23808080k&color=b0c69a&logo=fastapi&logoColor=white
 [fastapi-url]: https://fastapi.tiangolo.com/
 [joblib-shield]:https://img.shields.io/badge/Serializer-Joblib-black?style=flat&labelColor=%23808080k&color=70b29c&logo=joblib&logoColor=white
 [joblib-url]:https://joblib.readthedocs.io/en/stable/
 [jupyter-shield]:https://img.shields.io/badge/Notebook-Jupyter-black?style=flat&labelColor=%23808080k&color=2a9ca0&logo=Jupyter&logoColor=white
 [jupyter-url]: https://jupyter.org/
 [loguru-shield]:https://img.shields.io/badge/Logger-Loguru-black?style=flat&labelColor=%23808080k&color=2a6478&logo=loguru
-[loguru-url]:https://pandas.pydata.org/
-[pandas-shield]:https://img.shields.io/badge/Data_analysis-Pandas-black?style=flat&labelColor=%23808080k&color=4c4e77&logo=pandas
+[loguru-url]:https://github.com/Delgan/loguru
+[pandas-shield]:https://img.shields.io/badge/Data_manipulation-Pandas-black?style=flat&labelColor=%23808080k&color=4c4e77&logo=pandas
 [pandas-url]:https://pandas.pydata.org/
 [plotly-shield]:https://img.shields.io/badge/Data_Viz-Plotly-black?style=flat&labelColor=%23808080k&color=133337&logo=plotly&logoColor=white
 [plotly-url]: https://plotly.com/python/
 [pydantic-shield]:https://img.shields.io/badge/Validation-Pydantic-black?style=flat&labelColor=%23808080k&color=81493b&logo=pydantic&logoColor=white
 [pydantic-url]: https://docs.pydantic.dev/latest/
+[pytest-shield]:https://img.shields.io/badge/Testing-pytest-black?style=flat&labelColor=%23808080k&color=2a6478&logo=pytest
+[pytest-url]:https://docs.pytest.org/en/stable/
 [python-shield]:https://img.shields.io/badge/Language-Python-black?style=flat&labelColor=%23808080k&color=d65e40&logo=python&logoColor=white
 [python-url]: https://www.python.org/
 [scikitlearn-shield]:https://img.shields.io/badge/ML-Scikitlearn-black?style=flat&labelColor=%23808080k&color=f7b387&logo=scikitlearn&logoColor=white
@@ -225,7 +228,7 @@ http://127.0.0.1:8000/docs
 [supabase-url]: https://supabase.com/
 [uv-shield]:https://img.shields.io/badge/Dependencies-UV-black?style=flat&labelColor=%23808080k&color=2a0944&logo=uv&logoColor=white
 [uv-url]: https://github.com/astral-sh/uv
-[uvicorn-shield]:https://img.shields.io/badge/Server-Uvicorn-black?style=flat&labelColor=%23808080k&color=166866&logo=uvicorn&logoColor=white
+[uvicorn-shield]:https://img.shields.io/badge/ASGI_Server-Uvicorn-black?style=flat&labelColor=%23808080k&color=166866&logo=uvicorn&logoColor=white
 [uvicorn-url]: https://uvicorn.dev/
 
 ---
