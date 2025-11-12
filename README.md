@@ -159,10 +159,7 @@ Si todavía no se instaló uv en el sistema como en el primer paso, en terminal:
 uv venv
 ```
 
-### - Sincronizar entorno virtual al instalar el proyecto y luego de cada cambio en el .toml
-```
-uv sync
-```
+
 
 ### -Elegir kernel
 >Para que el código del notebook funcione,  indicarle a VS Code que utilice el Python >que está dentro del nuevo entorno. Esto se hace dentro de la interfaz del notebook:
@@ -177,6 +174,10 @@ uv sync
 #### Asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate`
 #### En linux: `source .venv/bin/activate`
 
+### - Sincronizar entorno virtual al instalar el proyecto y luego de cada cambio en el .toml
+```
+uv sync
+```
 
 #### - Correr todas las celdas en `load_save_db.ipynb` para generar los modelos a traves del notebook
 

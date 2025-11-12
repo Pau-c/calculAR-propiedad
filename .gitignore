@@ -25,12 +25,16 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+#archivos grandes
 entrenamiento.parquet
 gradient_boosting.joblib
 random_forest.joblib
-RAW/
-parquet/
-DB/
+entrenamiento-2025-04-16.csv
+entrenamiento.csv
+entrenamiento.duckdb
+entrenamiento.duckdb.wal
+
 manifest.json
 .github/
 
