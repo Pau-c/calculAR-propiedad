@@ -2,7 +2,6 @@ from collections import deque
 
 
 '''
-=====================================================================
 ELECCION DE MODELO: load_model en model_loader.py -> model en predict.py
 '''
 

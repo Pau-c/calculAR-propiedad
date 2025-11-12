@@ -147,8 +147,6 @@ uv venv
 uv sync
 ```
 
-#### - Correr todas las celdas en `load_save_db.ipynb` para generar los modelos a traves del notebook
-
 ### - Ejecutar el proyecto localmente en terminal con:
 ```
 uvicorn main:app --reload --port 8000
@@ -158,6 +156,15 @@ uvicorn main:app --reload --port 8000
 ```
 http://127.0.0.1:8000/docs
 ```
+#### - Correr el endpoint `ingest-train` para obtener los datos, limpiarlos, guardarlos en DBDuck, entrenar los modelos y guardarlos con joblib.
+#### - Correr el endpoint `Predict` para hacer predicciones.
+#### -  Los endpoints `ingest` y `train` son para testeo y se mantienen para observar cada tarea en aislamiento
+
+#### - Por otra parte la notebook `load_save_db.ipynb` contiene la misma logica en un solo lugar con el objetivo de facilitar el prototipado. 
+#### - Correr todas las celdas en `load_save_db.ipynb` para generar los modelos a traves del notebook y luego abrir el browser en el puerto 8000 y usar el endpoint `predict` para hacer predicciones.
+
+
+
 
 
 

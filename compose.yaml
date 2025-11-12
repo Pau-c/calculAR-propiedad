@@ -3,7 +3,12 @@ services:
     build: .
     ports:
       - "8000:8000"
+    env_file:
+      - .env
     environment:
+      - KAGGLE_USERNAME=${KAGGLE_USERNAME}
+      - KAGGLE_KEY=${KAGGLE_KEY}
+# Variables de entorno Datadog
       - DD_AGENT_HOST=datadog
       - DD_SERVICE=observability_api
       - DD_ENV=${ENV}
