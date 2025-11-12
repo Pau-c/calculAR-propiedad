@@ -160,7 +160,7 @@ http://127.0.0.1:8000/docs
 #### - Correr el endpoint `Predict` para hacer predicciones.
 #### -  Los endpoints `ingest` y `train` son para testeo y se mantienen para observar cada tarea en aislamiento
 
-#### - Por otra parte la notebook `load_save_db.ipynb` contiene la misma logica en un solo lugar con el objetivo de facilitar el prototipado. 
+#### - Por otra parte la notebook `load_save_db.ipynb` es opcional ya que contiene la misma logica en un solo lugar con el objetivo de facilitar el prototipado. 
 #### - Correr todas las celdas en `load_save_db.ipynb` para generar los modelos a traves del notebook y luego abrir el browser en el puerto 8000 y usar el endpoint `predict` para hacer predicciones.
 
 
@@ -175,7 +175,7 @@ http://127.0.0.1:8000/docs
 
 #### - Tener el servicio de Docker corriendo
 #### -  Poner.csv de kaggle en carpeta RAW: `app/data/artifacts/RAW` o configurar Kaggle api key para que se baje automaticamente.
-#### :exclamation: Correr la notebook `load_save_db.ipynb` con `run all` para generar los archivos joblib:
+#### En terminal:
 ```
 docker compose up --build
 ```
