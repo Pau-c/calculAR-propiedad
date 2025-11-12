@@ -97,11 +97,11 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 ```
 
 #### - Abrir el proyecto en IDE
-#### - Dataset: se puede bajar de Kaggle o con el codigo
+#### - Dataset: se puede bajar como csv de `Kaggle` de forma manual o desde el codigo con la api key de Kaggle
 
 <details>
 
-> #### - Modo 1 CSV:
+> #### - Modo 1 manual con CSV:
 #### - Bajar dataset de [Kaggle](https://www.kaggle.com/datasets/alejandroczernikier/properati-argentina-dataset) 
 #### - Poner el `.CSV` en la carpeta RAW: `app/data/artifacts/RAW`
 > #### - Modo 2 autenticación con api key: 
