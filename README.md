@@ -95,6 +95,7 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 
 #### - Abrir el proyecto en IDE
 #### - :exclamation: El **dataset** se puede bajar como .csv de `Kaggle` de forma manual o desde el codigo con la api key de Kaggle
+#### - :small_blue_diamond: modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
 
 <details>
 
@@ -112,7 +113,7 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 
 #### Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
 #### - Copiar `Api key` y dirección(ej: us3.datadoghq.com)
-#### :small_blue_diamond: modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
+#### :small_blue_diamond: modificar el `archivo env.txt` en la raíz del proyecto si todavia no se hizo y llamarlo `.env`
 #### - Dentro pegar la api key de Datadog que se copio antes siguiendo este formato (sin espacios ni comillas): `DD_API_KEY=`
 #### :small_blue_diamond: En archivo `compose.yaml` pegar la direccion copiada en `DD_SITE=` (sin espacios ni comillas)
 
@@ -147,8 +148,6 @@ uv venv
 uv sync
 ```
 
-#### - Correr todas las celdas en `load_save_db.ipynb` para generar los modelos a traves del notebook
-
 ### - Ejecutar el proyecto localmente en terminal con:
 ```
 uvicorn main:app --reload --port 8000
@@ -158,6 +157,15 @@ uvicorn main:app --reload --port 8000
 ```
 http://127.0.0.1:8000/docs
 ```
+#### - Correr el endpoint `ingest-train` para obtener los datos, limpiarlos, guardarlos en DBDuck, entrenar los modelos y guardarlos con joblib.
+#### - Correr el endpoint `Predict` para hacer predicciones.
+#### -  Los endpoints `ingest` y `train` son para testeo y se mantienen para observar cada tarea en aislamiento
+
+#### - Por otra parte la notebook `load_save_db.ipynb` es opcional ya que contiene la misma logica en un solo lugar con el objetivo de facilitar el prototipado. 
+#### - Correr todas las celdas en `load_save_db.ipynb` para generar los modelos a traves del notebook y luego abrir el browser en el puerto 8000 y usar el endpoint `predict` para hacer predicciones.
+
+
+
 
 
 
@@ -168,7 +176,7 @@ http://127.0.0.1:8000/docs
 
 #### - Tener el servicio de Docker corriendo
 #### -  Poner.csv de kaggle en carpeta RAW: `app/data/artifacts/RAW` o configurar Kaggle api key para que se baje automaticamente.
-#### :exclamation: Correr la notebook `load_save_db.ipynb` con `run all` para generar los archivos joblib:
+#### En terminal:
 ```
 docker compose up --build
 ```

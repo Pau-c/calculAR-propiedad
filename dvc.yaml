@@ -15,6 +15,24 @@ params:
 - app/data/metrics/params.yaml
 - app/data/metrics/params.yaml
 - app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
+- app/data/metrics/params.yaml
 metrics:
 - app/data/metrics/metrics.json
 - app/data/metrics/metrics.json
@@ -37,7 +55,57 @@ metrics:
 - app/data/metrics/metrics.json
 - app/data/metrics/metrics.json
 - app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
+- app/data/metrics/metrics.json
 plots:
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
+- app/data/metrics/plots/metrics:
+    x: step
 - app/data/metrics/plots/metrics:
     x: step
 - app/data/metrics/plots/metrics:
