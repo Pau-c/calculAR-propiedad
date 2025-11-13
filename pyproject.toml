@@ -24,6 +24,7 @@ dependencies = [
     "kaggle>=1.7.4.5",
     "dvc[git]>=3.50.2",
     "dvclive>=3.48.0",
+    "seaborn>=0.13.2",
 ]
 
 [dependency-groups]
