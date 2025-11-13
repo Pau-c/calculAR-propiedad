@@ -16,8 +16,21 @@
 - Mauro Ruben De Natale
 
 
+>Nuestra aplicación es un servicio de predicción de precios inmobiliarios, desarrollado en Python. Su arquitectura separa los procesos de ingesta de datos y entrenamiento del modelo de la lógica de predicción en tiempo real,  gestionados a través de una API REST construida con FastAPI.
+>Está contenerizado con Docker, lo que permite ejecutar la API y el agente de Datadog en entornos aislados pero coordinados, asegurando trazabilidad y monitoreo centralizado.
+
+
+
 > [!TIP]
 >[Repo en Github](https://github.com/Pau-c/calculAR-propiedad)
+
+> [!TIP]
+>[Documento](https://docs.google.com/document/d/1j6sRovC0LiSCPhm48MJ2MZgIPfDr1liQly7HKNY8_NE/edit?usp=sharing)
+
+
+**Puesta en marcha con uvicorn, mensajes en terminal y endpoints:**
+> [!TIP]
+>[Demo](https://youtu.be/goxSgItuAcE)
 
 
 <!-- PROJECT SHIELDS -->

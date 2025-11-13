@@ -49,7 +49,7 @@ def profile(df: pd.DataFrame):
     )
 
 def clip_outliers(df, profile_df):
-    """Recorta outliers usando el método IQR (clip, sin eliminar filas)."""
+    """Recorta outliers usando el método IQR (clip, sin eliminar filas)"""
     logger.info("Recortando outliers (clip)...")
     df_clipped = df.copy()
     for col in df_clipped.select_dtypes(include=np.number).columns:
@@ -162,7 +162,7 @@ async def run_training_pipeline():
         #  Cargar datos desde DuckDB (generados por la ingesta)
         logger.info(f"Conectando a DuckDB en {DB_PATH} para cargar datos...")
         con = duckdb.connect(DB_PATH)
-        # Filtramos solo CABA (l2 = 'Capital Federal') y Venta
+        # Filtra solo CABA (l2 = 'Capital Federal') y Venta para que el dataset sea manejable
         df_raw = con.execute("""
             SELECT * FROM datos_raw 
             WHERE l2 = 'Capital Federal' AND operation_type = 'Venta'

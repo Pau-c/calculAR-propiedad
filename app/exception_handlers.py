@@ -28,7 +28,7 @@ async def request_validation_exception_handler(request: Request, exc: RequestVal
             span.set_tag("validation.error_count", len(error_details))
             span.set_tag("request.url", str(request.url))
     
-    # SOLUCIÓN: Usar jsonable_encoder para asegurar que los errores sean serializables
+    #  Usar jsonable_encoder para asegurar que los errores sean serializables
     safe_content = jsonable_encoder({"detail": error_details})
     return JSONResponse(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, content=safe_content)
 
@@ -66,20 +66,20 @@ async def general_exception_handler(request: Request, exc: Exception):
     )
 
 
-# --- Función de Registro ---
+#  Función de Registro 
 def register_exception_handlers(app: FastAPI):
     """Registra todos los manejadores de excepciones globales en la aplicación."""
     
-    # Este es el manejador principal para errores de validación de Pydantic
+    # errores en la entrada del cliente 
     app.add_exception_handler(RequestValidationError, request_validation_exception_handler)
     
-    # Manejador para validaciones de Pydantic (si se usan manualmente)
+    #  validaciones de Pydantic (si se usan manualmente)
     app.add_exception_handler(ValidationError, pydantic_validation_exception_handler)
     
-    # Manejador para errores HTTP (ej. 404 Not Found)
+    #  errores HTTP (ej. 404 Not Found)
     app.add_exception_handler(StarletteHTTPException, http_exception_handler)
     
-    # Manejador genérico para errores 500
+    # handler genérico para errores 500
     app.add_exception_handler(Exception, general_exception_handler)
     
-    logger.info("Manejadores de excepciones globales registrados.")
+    logger.info("Error handlers globales registrados")

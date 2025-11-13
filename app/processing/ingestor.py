@@ -24,7 +24,7 @@ KAGGLE_FILE_NAME = "entrenamiento.csv"
 load_dotenv()
 
 
-# --- FUNCIONES AUXILIARES DE INGESTA (SIN KAGGLE) ---
+#  FUNCIONES AUXILIARES DE INGESTA  
 def ensure_directories():
     """Crea los directorios necesarios si no existen."""
     logger.info("Asegurando directorios de datos...")
@@ -91,7 +91,7 @@ def run_duckdb_pipeline(csv_path_to_load: str):
             con.close()
 
 
-# --- LÓGICA DE KAGGLE (ENVUELTA EN UNA FUNCIÓN LLAMABLE) ---
+#  LÓGICA DE KAGGLE  
 def _kaggle_api_logic(local_filepath: str | None, local_date: datetime | None) -> tuple[str | None, bool]:
     """
     Contiene TODA la lógica que requiere la API de Kaggle y la función requests.
@@ -123,7 +123,7 @@ def _kaggle_api_logic(local_filepath: str | None, local_date: datetime | None) -
 
             if not (username and key):
                 logger.warning(
-                    "⚠️ No hay credenciales de Kaggle disponibles. Se omitirá la descarga."
+                    "No hay credenciales de Kaggle disponibles. Se omitirá la descarga."
                 )
                 return None
 
@@ -164,7 +164,7 @@ def _kaggle_api_logic(local_filepath: str | None, local_date: datetime | None) -
 
         try:
             api = KaggleApi()
-            api.authenticate()  # ✅ importante: inicializa credenciales
+            api.authenticate()  # inicializa credenciales
             api.dataset_download_files(KAGGLE_DATASET, path=RAW_DIR, unzip=True, force=True)
 
             if not os.path.exists(original_download_path):
@@ -225,7 +225,7 @@ def _kaggle_api_logic(local_filepath: str | None, local_date: datetime | None) -
     return file_to_process, needs_db_update
 
 
-# --- FUNCIÓN PRINCIPAL DE INGESTA ---
+#  INGESTA 
 async def run_ingestion_pipeline():
     """Punto de entrada principal para ejecutar todo el pipeline de ingesta."""
     logger.info("--- Iniciando Pipeline de Ingesta ---")
@@ -256,7 +256,7 @@ async def run_ingestion_pipeline():
                 logger.error(msg)
                 return {"status": "error", "message": msg}
 
-        # --- Ejecución Final ---
+        #  Ejecución Final 
         if file_to_process and needs_db_update:
             logger.info("Actualizando DuckDB y Parquet...")
             run_duckdb_pipeline(file_to_process)

@@ -9,8 +9,7 @@ import os
 from app.routers import health, predict, ingestion, training, pipeline
 from app.utils.log_config import logger
 from app.utils.model_loader import load_model
-# Importar manejo de  excepciones
-from app.exception_handlers import register_exception_handlers
+from app.exception_handlers import register_exception_handlers# Importar manejo de  excepciones
 
 load_dotenv()
 app = FastAPI(
@@ -30,7 +29,7 @@ def startup_event():
     try:
         load_model() # Carga el modelo en caché al iniciar
     except Exception as e:
-        # Si el modelo no existe, solo registra una advertencia pero permite que la API continúe.
+        # Si el modelo no existe, solo registra una advertencia permitiendo que la API continúe
         logger.warning(f"Startup: No se pudo cargar el modelo al inicio: {e}")
         logger.warning("La API se iniciará sin un modelo cargado. Ejecute el endpoint de entrenamiento/pipeline.")
 
@@ -39,10 +38,10 @@ def startup_event():
 register_exception_handlers(app)
 
 
-# --- Inclusión de Routers ---
+# Routers 
 logger.info("Incluyendo routers...")
 app.include_router(health.router)
-# Ruta que fusiona ingesta y entrenamiento
+#  fusiona ingesta y entrenamiento
 app.include_router(pipeline.router)
 app.include_router(predict.router)
 #endpoints de ingesta y entrenamiento separados

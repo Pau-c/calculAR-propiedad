@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 from app.utils.config import MODEL_PATH
 from app.utils.latency import average_latency
-# MODIFICACIÓN: Importar get_model en lugar de load_model
 from app.utils.model_loader import get_model
 from app.utils.log_config import logger
 
@@ -14,10 +13,9 @@ def health_check():
     """
     model = None
     try:
-        # MODIFICACIÓN: Obtener el modelo desde la caché (o cargarlo si es la primera vez)
         model = get_model()
     except Exception as e:
-        # Si get_model() falla (ej. el archivo aún no existe), lo manejamos
+        
         logger.warning(f"Health check: No se pudo obtener el modelo: {e}")
         
     return {

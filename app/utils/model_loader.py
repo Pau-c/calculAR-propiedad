@@ -23,7 +23,7 @@ def load_model(force_reload: bool = False):
         return _model
     except Exception as e:
         logger.error(f"Error cargando el modelo: {e}")
-        _model = None # Asegurarse que el modelo es None si falla la carga
+        _model = None #  el modelo es None si falla la carga
         raise RuntimeError(f"Error cargando el modelo: {e}")
 
 def get_model():
