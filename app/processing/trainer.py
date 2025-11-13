@@ -154,7 +154,7 @@ def save_metrics_to_duckdb(params, metrics_rf, metrics_gb):
 
 #  PIPELINE  DE ENTRENAMIENTO 
 
-def run_training_pipeline():
+async def run_training_pipeline():
     """Función principal que ejecuta todo el pipeline de entrenamiento."""
     logger.info("--- Iniciando Pipeline de Entrenamiento ---")
     

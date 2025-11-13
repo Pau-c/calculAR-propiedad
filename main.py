@@ -1,5 +1,9 @@
 from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
+from dotenv import load_dotenv
+import os
+
+
 
 # Importar todos los routers
 from app.routers import health, predict, ingestion, training, pipeline
@@ -8,6 +12,7 @@ from app.utils.model_loader import load_model
 # Importar manejo de  excepciones
 from app.exception_handlers import register_exception_handlers
 
+load_dotenv()
 app = FastAPI(
     title="API de Predicción de Precios de Propiedades",
     description="Una API para servir predicciones inmobiliarias",

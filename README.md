@@ -95,6 +95,7 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 
 #### - Abrir el proyecto en IDE
 #### - :exclamation: El **dataset** se puede bajar como .csv de `Kaggle` de forma manual o desde el codigo con la api key de Kaggle
+#### - :small_blue_diamond: modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
 
 <details>
 
@@ -112,7 +113,7 @@ git clone https://github.com/Pau-c/calculAR-propiedad.git
 
 #### Hacer una cuenta en `Datadog` -> install agents-> Docker -> elegir region.
 #### - Copiar `Api key` y dirección(ej: us3.datadoghq.com)
-#### :small_blue_diamond: modificar el `archivo env.txt` en la raíz del proyecto y llamarlo `.env`
+#### :small_blue_diamond: modificar el `archivo env.txt` en la raíz del proyecto si todavia no se hizo y llamarlo `.env`
 #### - Dentro pegar la api key de Datadog que se copio antes siguiendo este formato (sin espacios ni comillas): `DD_API_KEY=`
 #### :small_blue_diamond: En archivo `compose.yaml` pegar la direccion copiada en `DD_SITE=` (sin espacios ni comillas)
 
